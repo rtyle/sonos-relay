@@ -1,0 +1,3 @@
+[submodule "multicast-relay"]
+	path = multicast-relay
+	url = git@github.com:rtyle/multicast-relay.git
