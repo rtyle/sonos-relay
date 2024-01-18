@@ -67,7 +67,7 @@ Unmount **bootfs** and **rootfs** using **gnome-disks**.
 # Add to Network
 
 Configure the Raspberry Pi's switch port so that its default VLAN is that of the Sonos devices.
-In addition add the VLAN tags of the network(s) of the Sonos controllers.
+Add the tagged VLANs of the Sonos controllers.
 
 Attach the Raspberry Pi to the network and start it.
 
