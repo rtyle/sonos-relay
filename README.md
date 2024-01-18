@@ -64,4 +64,36 @@ Enable **pi** account login by replacing its impossible password hash ('!') with
 
 Unmount **bootfs** and **rootfs** using **gnome-disks**.
 
+# Add Rasberry Pi to the network
 
+Configure its port so that its default VLAN is that of the Sonos devices.
+In addition add the VLAN tags of the network(s) of the Sonos controllers.
+Add it to the network.
+
+Optionally, give it a reserved DHCP address and DNS name (e.g. sonos-relay.home.arpa).
+
+# Configuration
+
+Login with ssh
+
+	ssh pi@sonos-relay.home.auto
+
+Git sonos-relay
+
+	git clone https://github.com/rtyle/sonos-relay
+
+	(cd sonos-relay; git submodule update --init --recursive)
+
+Configure the VLAN interfaces
+
+	nmcli con
+
+Choose the interface. For example
+
+	if=eth0
+
+For each tagged VLAN
+
+	nmcli con add type vlan con-name **$name** dev **$if** id **$id** ipv4 **$ip** gw4 **$gw**
+
+Where
