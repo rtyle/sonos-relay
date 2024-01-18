@@ -77,12 +77,11 @@ Optionally, give it a reserved DHCP address and DNS name (e.g. sonos-relay.home.
 
 Login with ssh
 
-	ssh pi@sonos-relay.home.auto
+	ssh pi@sonos-relay.home.arpa
 
 Git sonos-relay
 
 	git clone https://github.com/rtyle/sonos-relay
-
 	(cd sonos-relay; git submodule update --init --recursive)
 
 Configure the VLAN interfaces
@@ -96,4 +95,5 @@ Choose the interface. For example
 For each tagged VLAN
 
 	nmcli con add type vlan con-name $name dev $if id $id ipv4 $ip gw4 $gw
-Where
+ 
+Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 address and $gw is the gateway to this VLAN.
