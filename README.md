@@ -1,16 +1,22 @@
+# Sonos Inter-VLAN Relay
+
+A Sonos Inter-VLAN Relay (sonos-relay) may be necessary when Sonos devices are on a separate VLAN from their controllers.
+This project documents the deployment of a [multicast-relay](https://github.com/alsmith/multicast-relay) on a Raspberry Pi dedicated for this purpose.
+
 # Best Networking Practices for Sonos Devices
 
-I have followed the guidance given
+Guidance given
 [here](https://help.ui.com/hc/en-us/articles/18930473041047-Best-Practices-for-Sonos-Devices)
-to avoid networking problems with Sonos devices.
+helps to avoid networking problems with Sonos devices.
 
-Specifically, I have created a VLAN dedicated exclusively to Sonos devices.
-Sonos devices are all wired into this VLAN.
-Because they are wired, they do not communicate wirelessly (using SonosNet) which,
+It is best to create a VLAN dedicated exclusively to Sonos devices.
+Wire all Sonos devices into this VLAN.
+Because they are wired, they do not mesh wirelessly (using SonosNet) which,
 if not handled carefully with the right
 [STP](https://en.wikipedia.org/wiki/Spanning_Tree_Protocol)
 configuration, can create disasterous network loops.
-The embedded switches in some Sonos devices are not used.
+
+Do not use the extra port in the embedded switches of some Sonos devices.
 
 # Sonos Controller Support
 
@@ -33,7 +39,8 @@ Instead, it seems best to deploy a dedicated device for this purpose.
 
 # Raspberry Pi Installation
 
-I did this on my Fedora Linux machine but the same results can be achieved otherwise.
+This describes the installation from a Fedora Linux machine.
+The same results can be achieved otherwise.
 
 Download a [Raspberry Pi OS image](https://www.raspberrypi.com/software/operating-systems/).
 Raspberry Pi OS Lite will suffice.
