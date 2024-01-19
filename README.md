@@ -1,7 +1,7 @@
 # Sonos Inter-VLAN Relay
 
 A Sonos Inter-VLAN Relay (sonos-relay) may be necessary when Sonos devices are on a separate VLAN from their controllers.
-This project documents the deployment of a [multicast-relay](https://github.com/alsmith/multicast-relay) on a Raspberry Pi dedicated for this purpose.
+This repository documents the deployment of a [multicast-relay](https://github.com/alsmith/multicast-relay) on a Raspberry Pi dedicated for this purpose.
 
 # Best Networking Practices for Sonos Devices
 
@@ -82,9 +82,19 @@ Optionally, give it a reserved DHCP address and DNS name (e.g. sonos-relay.home.
 
 # Configuration
 
-Login with ssh
+Because the routing configuration of the Raspberry Pi will change during the configuration described here,
+it is best to (temporarily?) place the machine you will be accessing it from on the same VLAN
+(by default or with a VLAN tagged interface).
+
+Login
 
 	ssh pi@sonos-relay.home.arpa
+
+Set timezone.
+For example,
+
+	timedatectl list-timezones
+ 	sudo timedatectl set-timezone America/Los_Angeles
 
 Git sonos-relay
 
@@ -92,17 +102,10 @@ Git sonos-relay
 	git clone https://github.com/rtyle/sonos-relay
 	(cd sonos-relay; git submodule update --init --recursive)
 
-Configure the VLAN interfaces
+Configure the VLAN interfaces.
+For each tagged VLAN,
 
-	nmcli con
-
-Choose the interface. For example
-
-	if=eth0
-
-For each tagged VLAN
-
-	nmcli con add type vlan con-name $name dev $if id $id ipv4 $ip gw4 $gw
+	nmcli con add type vlan con-name $name dev eth0 id $id ipv4 $ip gw4 $gw
  
 Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 address and $gw is the gateway to this VLAN.
 
