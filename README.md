@@ -113,14 +113,14 @@ Enable the service. It sill start automatically on reboot.
 
 	sudo systemctl enable /home/pi/sonos-relay/sonos-relay.service
  
- Start it now
+Start it now
 
  	sudo systemctl start sonos-relay
 
-  Status
+Status
 
   	systemctl status sonos-relay
 
-   Follow verbose logging (add --verbose to unit file)
+Follow verbose logging (add --verbose to unit file)
 
    	journalctl -u sonos-relay -f
