@@ -81,6 +81,7 @@ Login with ssh
 
 Git sonos-relay
 
+	# git clone git@github.com:rtyle/sonos-relay
 	git clone https://github.com/rtyle/sonos-relay
 	(cd sonos-relay; git submodule update --init --recursive)
 
