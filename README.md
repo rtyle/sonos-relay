@@ -112,11 +112,11 @@ Install dependencies
 
 # Test Run
 
-	sudo python multicast-relay.py --interfaces $(nmcli con | tail -n +2 | awk '{print $NF}' | grep $if) --noMDNS --foreground --verbose
+	sudo python /home/pi/sonos-relay/multicast-relay/multicast-relay.py --interfaces $(nmcli con | tail -n +2 | awk '{print $NF}' | grep $if) --noMDNS --foreground --verbose
 
 # Automatic Run
 
-Enable the service. It sill start automatically on reboot.
+Enable the service. It will start automatically on reboot.
 
 	sudo systemctl enable /home/pi/sonos-relay/sonos-relay.service
  
