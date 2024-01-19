@@ -98,3 +98,11 @@ For each tagged VLAN
 	nmcli con add type vlan con-name $name dev $if id $id ipv4 $ip gw4 $gw
  
 Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 address and $gw is the gateway to this VLAN.
+
+Install dependencies
+
+	sudo apt install python3-netifaces
+
+# Test Run
+
+	sudo python multicast-relay.py --interfaces $(nmcli con | tail -n +2 | awk '{print $NF}' | grep $if) --noMDNS --foreground --verbose
