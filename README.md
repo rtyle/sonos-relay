@@ -115,7 +115,7 @@ Install dependencies
 
 # Test Run
 
-	sudo python /home/pi/sonos-relay/multicast-relay/multicast-relay.py --interfaces $(nmcli con | tail -n +2 | awk '{print $NF}' | grep $if) --noMDNS --foreground --verbose
+	sudo python /home/pi/sonos-relay/multicast-relay/multicast-relay.py --interfaces $(nmcli con | tail -n +2 | awk '{print $NF}' | grep eth0) --noMDNS --foreground --verbose
 
 # Automatic Run
 
