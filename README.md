@@ -107,7 +107,7 @@ For each tagged VLAN,
 
 	nmcli con add type vlan con-name $name dev eth0 id $id ip4 $ip gw4 $gw
  
-Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 address and $gw is the gateway to this VLAN.
+Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 CIDR address and $gw is the gateway to this VLAN.
 
 Install dependencies
 
