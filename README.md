@@ -105,9 +105,9 @@ Git sonos-relay
 Configure the VLAN interfaces.
 For each tagged VLAN,
 
-	nmcli con add type vlan con-name $name dev eth0 id $id ip4 $ip gw4 $gw
+	nmcli con add type vlan con-name $name dev eth0 id $id ip4 $ip
  
-Where $name is the name of the VLAN, $id is its VLAN ID, $ip is its IPv4 CIDR address and $gw is the gateway to this VLAN.
+Where $name is the name of the VLAN, $id is its VLAN ID and $ip is its IPv4 CIDR address to this VLAN.
 
 Install dependencies
 
